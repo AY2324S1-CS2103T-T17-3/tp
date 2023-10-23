@@ -334,6 +334,38 @@ Displays a list of all schedules in the address book in a table format.
     
 </div>
 
+### Unmarking a schedule: `unmark`
+
+Sets the status of a schedule in the address book to be `PENDING` based on their index number in the table of schedules
+listed.
+
+![unmark schedule](images/unmarkSchedule.png)
+
+**Format:** `unmark SCHEDULE_INDEX`
+
+**Example:**
+* `umark 5` sets the status of the schedule indexed at 5 in the schedule list to be `PENDING`.
+* `list-s` followed by `unmark 2` sets the status of the schedule indexed at 2 in the schedule list to be `PENDING`.
+
+**Acceptable values for each parameter:**
+* `SCHEDULE_INDEX`: Only numerical input that ranges from 1 to the last schedule shown in the list of schedules.
+
+**Expected output:**
+* `Unmarked Schedule: Alex Yeoh; Start Time: Sep 15 2023 09:00; End Time: Sep 15 2023 11:00`
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Schedule status**<br>
+
+* Only COMPLETED and MISSED statuses are displayed.
+* Schedules are all taken to be initially PENDING.
+
+</div>
+
+**Error messages:**
+* `Index number given is out of range`: The schedule index provided is invalid
+* `Invalid command format!`: Invalid or missing SCHEDULE_INDEX.
+
 ### Deleting a schedule: `delete-s`
 
 Deletes a schedule in the address book based on their index number in the table of schedules listed.
@@ -344,7 +376,7 @@ Deletes a schedule in the address book based on their index number in the table 
 
 **Example:**
 * `delete-s 5` deletes the schedule that is indexed as 5 in the schedule list.
-* `list` followed by `delete-s 2` deletes the 2nd schedule in the schedule list.
+* `list-s` followed by `delete-s 2` deletes the 2nd schedule in the schedule list.
 
 **Acceptable values for each parameter:**
 * `SCHEDULE_INDEX`: Only numerical input that ranges from 1 to the last schedule shown in the list of schedules.
@@ -376,14 +408,16 @@ _More details coming soon ..._
 
 ## Command summary
 
-| Action              | Format, Examples                                                                                                            |
-|---------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| **Add Tutor**       | `add-t n/NAME p/PHONE NUMBER e/EMAIL` <br> e.g., `add-t n/John Doe p/98765432 e/johnd@example.com`                          |
-| **List Tutor**      | `list-t`                                                                                                                    |
-| **Delete Tutor**    | `delete-t TUTOR_INDEX`<br> e.g., `delete-t 3`                                                                               |
-| **Add Schedule**    | `add-s ti/TUTOR_INDEX s/START_TIME e/END_TIME` <br> e.g., `add-s ti/1 s/2023-09-15T09:00:00 e/2023-09-15T11:00:00`          |
-| **List Schedule**   | `list-s`                                                                                                                    |
-| **Delete Schedule** | `delete-s INDEX_NO`<br> e.g., `delete-s 3`                                                                                  |
-| **Clear**           | `clear`                                                                                                                     |
-| **Edit**            | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com` |
-| **Find**            | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                  |
+| Action              | Format, Examples                                                                                                |
+|---------------------|-----------------------------------------------------------------------------------------------------------------|
+| **Add Tutor**       | `add-t n/NAME p/PHONE NUMBER e/EMAIL` <br> e.g., `add-t n/John Doe p/98765432 e/johnd@example.com`              |
+| **Edit Tutor**      | `edit-t TUTOR_INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL]`<br> e.g.,`edit-t 2 n/James Lee e/jameslee@example.com` |
+| **List Tutor**      | `list-t`                                                                                                        |
+| **Delete Tutor**    | `delete-t TUTOR_INDEX`<br> e.g., `delete-t 3`                                                                   |
+| **Find**            | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                      |
+| **Add Schedule**    | `add-s TUTOR_INDEX s/START_TIME e/END_TIME` <br> e.g., `add-s 1 s/2023-09-15T09:00:00 e/2023-09-15T11:00:00`    |
+| **Edit Schedule**   | `edit-s SCHEDULE_INDEX [s/START_TIME] [e/END_TIME]`<br> e.g., `edit-s 3 s/2023-09-15T09:00:00`                  |
+| **List Schedule**   | `list-s`                                                                                                        |
+| **Unmark Schedule** | `unmark SCHEDULE_INDEX`<br> e.g., `unmark 3`                                                                    |
+| **Delete Schedule** | `delete-s SCHEDULE_INDEX`<br> e.g., `delete-s 3`                                                                |
+| **Clear**           | `clear`                                                                                                         |
