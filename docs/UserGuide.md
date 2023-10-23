@@ -344,7 +344,7 @@ listed.
 **Format:** `unmark SCHEDULE_INDEX`
 
 **Example:**
-* `umark 5` sets the status of the schedule indexed at 5 in the schedule list to be `PENDING`.
+* `unmark 5` sets the status of the schedule indexed at 5 in the schedule list to be `PENDING`.
 * `list-s` followed by `unmark 2` sets the status of the schedule indexed at 2 in the schedule list to be `PENDING`.
 
 **Acceptable values for each parameter:**
