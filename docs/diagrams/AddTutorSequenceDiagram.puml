@@ -6,13 +6,13 @@ box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
 participant ":AddTutorCommandParser" as AddTutorCommandParser LOGIC_COLOR
-participant "person:Person" as Person MODEL_COLOR
 participant "d:AddTutorCommand" as AddTutorCommand LOGIC_COLOR
 participant ":CommandResult" as CommandResult LOGIC_COLOR
 end box
 
 box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
+participant "person:Person" as Person MODEL_COLOR
 end box
 
 [-> LogicManager : execute("add-t \n n/John Doe p/98765432 \n e/johnd@example.com")
